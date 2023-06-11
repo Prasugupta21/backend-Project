@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-const URL=process.env.PORT || 3000
+const URI=process.env.PORT || 3000
 app.use(session({
   secret: 'Our Little Secreat ',
   resave: false,
@@ -274,6 +274,6 @@ app.post("/home",function(req,res){
 res.redirect("/compose");
 });
 
-app.listen(3000, function() {
+app.listen(URI, function() {
   console.log("Server started on port 3000");
 });
