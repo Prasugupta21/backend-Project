@@ -4,13 +4,10 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
- 
     "body-parser": "^1.20.1",
     "brace-expansion": "^1.1.11",
-    
     "build": "^0.1.4",
     "builder": "^5.0.0",
-   
     "content-disposition": "^0.5.4",
     "content-type": "^1.0.5",
     "cookie": "^0.5.0",
@@ -35,7 +32,6 @@
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "extend": "^3.0.2",
-  
     "fs": "^0.0.1-security",
     "function-bind": "^1.1.1",
     "generaterr": "^1.5.0",
@@ -51,9 +47,7 @@
     "has-symbols": "^1.0.3",
     "http-errors": "^2.0.0",
     "http-signature": "^1.2.0",
-   
     "lodash": "^4.17.21",
-    
     "mime-types": "^2.1.35",
     "minimatch": "^3.1.2",
     "mongodb": "^5.6.0",
@@ -73,12 +67,10 @@
     "nvm": "^0.0.4",
     "oauth": "^0.9.15",
     "oauth-sign": "^0.9.0"
-   
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"
