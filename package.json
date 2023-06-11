@@ -4,19 +4,14 @@
   "main":"app.js",
   "scripts": {
   
-    "start": "node app.js",
-    "build":"./bin/vendor.js"
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   
     
   },
   "author": "",
   "license": "ISC",
-  "bundlesize": [
-    {
-      "path": "./bin/vendor.js",
-      "maxSize": "30 kB"
-    }
-  ],
+ 
   "dependencies": {
     "build": "^0.1.4",
     "dotenv": "^16.1.4",
