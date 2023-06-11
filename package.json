@@ -1,9 +1,13 @@
 {
   "name": "Backend-Project",
   "description": "",
+  "main":"app.js",
   "scripts": {
   
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "build":"./bin/vendor.js"
+  
+    
   },
   "author": "",
   "license": "ISC",
