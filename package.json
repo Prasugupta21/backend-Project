@@ -25,6 +25,7 @@
     "ejs": "^3.1.9",
     "enabled": "^2.0.0",
     "encodeurl": "^1.0.2",
+    "env-cmd": "^10.1.0",
     "escape-html": "^1.0.3",
     "escape-string-regexp": "^1.0.5",
     "esprima": "^4.0.1",
@@ -70,7 +71,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "env-cmd -f  npm run build"
   },
   "author": "",
   "license": "ISC"
