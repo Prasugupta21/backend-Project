@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-const URI=process.env.PORT || 3000
+const URI=process.env.PORT || 3000;
 app.use(session({
   secret: 'Our Little Secreat ',
   resave: false,
@@ -30,8 +30,8 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-mongoose.connect("mongodb+srv://prasugupta000000216:23456Ram@cluster0.wwy8zyp.mongodb.net/blogDB");
-
+// mongoose.connect("mongodb+srv://prasugupta000000216:23456Ram@cluster0.wwy8zyp.mongodb.net/blogDB");
+mongoose.connect(`${process.env.DATABASE}`, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const postSchema=({
  title:String,
