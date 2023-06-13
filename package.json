@@ -29,8 +29,8 @@
     "start": "^5.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":""
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "files": [
     "app.js"
