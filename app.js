@@ -4,7 +4,7 @@ const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-var request = require("request");
+
 const _ = require('lodash');
 const saltRounds=10;
 const session = require('express-session');
