@@ -4,7 +4,7 @@ const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-
+var cors = require('cors')
 const _ = require('lodash');
 const saltRounds=10;
 const session = require('express-session');
@@ -19,8 +19,9 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
-
+app.use(express.static( 'build'));
+app.use(cors());
+app.use
 const URI=process.env.PORT || 3000;
 app.use(session({
   secret: 'Our Little Secreat ',
