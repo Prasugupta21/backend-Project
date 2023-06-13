@@ -22,7 +22,6 @@ app.use(express.static("public"));
 app.use(express.static( 'build'));
 app.use(cors());
 
-const URI=process.env.PORT || 3000;
 app.use(session({
   secret: 'Our Little Secreat ',
   resave: false,
@@ -31,7 +30,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// mongoose.connect("mongodb+srv://prasugupta000000216:23456Ram@cluster0.wwy8zyp.mongodb.net/blogDB");
 mongoose.connect(`${process.env.DATABASE}`, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const postSchema=({
@@ -41,13 +39,10 @@ const postSchema=({
 const userSchema=new mongoose.Schema({
   email:{
     type:String,
-   
-   },
+  },
  password:String,
   googleId:String
-  
-  
-});
+  });
 const Post=mongoose.model("Post",postSchema);
 const contactSchema = {
   fname:String,
@@ -64,7 +59,6 @@ userSchema.plugin(passpLocalMongoose);
 userSchema.plugin(findOrCreate);
 const User=mongoose.model("User",userSchema);
 passport.use(User.createStrategy());
-
 passport.serializeUser(function(user, cb) {
   process.nextTick(function() {
     return cb(null, {
@@ -74,13 +68,11 @@ passport.serializeUser(function(user, cb) {
     });
   });
 });
-
 passport.deserializeUser(function(user, cb) {
   process.nextTick(function() {
     return cb(null, user);
   });
 });
-
 passport.use(new GoogleStrategy({
   clientID:process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
@@ -98,37 +90,14 @@ const homeStartingContent = "The most widely used source for information gatheri
 
 const aboutContent = " I spend a lot of time worldwide blogging and writing scripts. I enjoy going on vacation, reading, and doing extensive study for new site designs. This website was created to compile the most recent and innovative blogger templates created by various developers worldwide. We posted each design to the greatest selection of blogger template directories since they are all distinctive and adaptable. We appreciate your visit and support. To stay in contact with us and view additional site designs,";
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.get("/home",function(req,res){
 
     Post.find({}).exec().then(postarray=>{
     
 
       res.render("home",{para1:homeStartingContent,postArr:postarray});
-    })
-  
-  
-  
-
-
+})
 });
-  // res.render("home",{para1:homeStartingContent,postArr:postArray});
-  
-
-
-
 app.get("/",(req,res)=>{
 
   res.render("home1");
@@ -150,16 +119,13 @@ app.post("/contact",function(req,res){
     message:req.body.msg
     });
     contact1.save().then(()=>{
-      
-       res.send("Yourquery has been submitted ");
+      res.send("Your query has been submitted ");
       }
-      
-    ).catch(err=>{
+      ).catch(err=>{
       console.log(err);
     })
   });
- 
-app.get("/about",function(req,res){
+ app.get("/about",function(req,res){
  res.render("about",{para2:aboutContent});
 });
 app.get("/contact",function(req,res){
@@ -169,25 +135,8 @@ app.get("/compose",function(req,res){
   
  res.render("compose");
 });
-
-
 app.get("/postarray/:topic",function(req,res){
-//  for(var i=0;i<postArray.length;i++){
 
-//   if(req.params.topic===postArray[i].title){
-//   console.log("Match Found!");
-
-//  }
-// }
-// postArray.forEach(function(e){
-//   let comp1=_.lowerCase(req.params.topic);
-//   let comp2=_.lowerCase(e.title);
- 
-//   if(comp1===comp2){
-
-//    res.render("post",{PostTitle:e.title,PostBody:e.content});
-//   }
-// });
 const requestPostId=req.params.topic;
 Post.findOne({_id:requestPostId}).then(post=>{
    res.render("post",{PostTitle:post.title,PostBody:post.content});
@@ -243,11 +192,7 @@ app.get("/logout", function(req, res){
   res.redirect("/login");
 });
 app.post("/compose",function(req,res){
-//   const post={
-//     title:req.body.postTitle,
-//     postbody:req.body.postBody
 
-//   };
 
 const post=new Post({
   title:req.body.postTitle,
@@ -257,18 +202,10 @@ post.save().then(()=>{
   res.redirect("/home");
 });
 
-// postArray.push(post);
+
 
 
 });
-
-
-
-
-
-
-
-
 
 
 app.post("/home",function(req,res){
