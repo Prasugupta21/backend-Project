@@ -19,8 +19,6 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-app.use(express.static( 'build'));
-app.use(cors());
 
 app.use(session({
   secret: 'Our Little Secreat ',
@@ -212,6 +210,6 @@ app.post("/home",function(req,res){
 res.redirect("/compose");
 });
 
-app.listen(3000, function() {
+app.listen(3000 || process.env.PORT, function() {
   console.log("Server started on port 3000");
 });
