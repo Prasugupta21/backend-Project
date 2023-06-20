@@ -160,7 +160,7 @@ else{
 
 });
 app.get("/auth/google",
-  passport.authenticate('google', { scope: ["email","profile"] })
+  passport.authenticate('google', { scope: ["profile"] })
 );
 app.get("/auth/google/home", 
   passport.authenticate('google', { failureRedirect: '/login' }),
