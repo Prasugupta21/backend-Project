@@ -10,6 +10,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.1.4",
     "ejs": "^3.1.9",
+    "export": "^0.1.337",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "lodash": "^4.17.21",
@@ -25,14 +26,12 @@
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0",
+    "path": "^0.12.7",
     "request": "^2.88.2"
-    
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
-    
- 
+    "start": "node app.js"
   },
   "files": [
     "app.js"

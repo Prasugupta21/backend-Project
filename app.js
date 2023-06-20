@@ -4,7 +4,7 @@ const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-var cors = require('cors')
+const path=require("path");
 const _ = require('lodash');
 const saltRounds=10;
 const session = require('express-session');
@@ -15,6 +15,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose=require("mongoose");
 const { post } = require("request");
 const app = express();
+
+const PORT=process.env.PORT || 3000
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -74,7 +76,7 @@ passport.deserializeUser(function(user, cb) {
 passport.use(new GoogleStrategy({
   clientID:process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: "https://odd-pear-moth-kilt.cyclic.app/auth/google/home",
+  callbackURL: "https://outrageous-baseball-cap-ray.cyclic.app/auth/google/home",
   userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
 },
 function(accessToken, refreshToken, profile, cb) {
@@ -210,6 +212,6 @@ app.post("/home",function(req,res){
 res.redirect("/compose");
 });
 
-app.listen(3000 || process.env.PORT, function() {
+app.listen(PORT, function() {
   console.log("Server started on port 3000");
 });
